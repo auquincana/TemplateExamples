@@ -6,9 +6,6 @@
 #include <vector>
 #include <algorithm>
 
-#ifndef TOL
-#define TOL 10e-7
-#endif
 
 bool isOdds(int& value)
 {
@@ -25,12 +22,12 @@ bool islowerThan(int valueL, int valueR)
 
 bool islowerThan(double& valueL, double& valueR)
 {
-	return (valueL + TOL < valueR - TOL);
+	return (valueL < valueR );
 }
 
 bool isGreaterThan(double& valueL, double& valueR)
 {
-	return (valueL - TOL > valueR + TOL);
+	return (valueL > valueR);
 }
 
 bool isGreaterThan(int valueL, int valueR)
@@ -46,7 +43,7 @@ int myAlgorithms()
 	std::uniform_int_distribution<int> distribution(0, 1000);
 	std::vector<int> p(nrolls);
 
-	int odds = 0;
+	unsigned long long int odds = 0;
 	for (auto& elem : p)
 	{
 		elem = distribution(generator);
